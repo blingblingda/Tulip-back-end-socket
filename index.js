@@ -6,7 +6,7 @@ const app = express();
 const server = http.createServer(app);
 const io = new Server(server, {
   cors: {
-    origin: "http://localhost:3000", // Update this to match your frontend URL in production
+    origin: "https://tulip-fe.onrender.com", // Update this to match your frontend URL in production
     methods: ["GET", "POST"],
   },
 });
