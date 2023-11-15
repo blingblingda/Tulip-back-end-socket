@@ -40,7 +40,7 @@ io.on("connection", (socket) => {
   // Handle "disconnectUser" event
   socket.on("disconnectUser", (userId) => {
     // Broadcast the disconnect event to all other users in the same room or conversation
-    socket.broadcast.emit("userDisconnected", userId);
+    io.to(matchId).emit("userDisconnected", userId);
   });
 });
 
