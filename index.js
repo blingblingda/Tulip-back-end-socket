@@ -38,9 +38,8 @@ io.on("connection", (socket) => {
   });
 
   // Handle "disconnectUser" event
-  socket.on("disconnectUser", (userId) => {
-    // Broadcast the disconnect event to all other users in the same room or conversation
-    io.to(matchId).emit("userDisconnected", userId);
+  socket.on("disconnectUser", (matchId) => {
+    io.to(matchId).emit("userDisconnected", matchId);
   });
 });
 
