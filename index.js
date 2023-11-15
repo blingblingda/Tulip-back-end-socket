@@ -36,6 +36,12 @@ io.on("connection", (socket) => {
   socket.on("disconnect", () => {
     console.log("User disconnected:", socket.id);
   });
+
+  // Handle "disconnectUser" event
+  socket.on("disconnectUser", (userId) => {
+    // Broadcast the disconnect event to all other users in the same room or conversation
+    socket.broadcast.emit("userDisconnected", userId);
+  });
 });
 
 server.listen(3002, () => {
